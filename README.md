@@ -9,6 +9,22 @@ A cinematic, anonymous confession platform built with Next.js 14, Tailwind CSS, 
 - **Video Showcase:** Grid layout for YouTube Shorts embeds.
 - **Responsive:** Optimized for mobile and desktop.
 
+## Media Assets & Content
+
+This repository also contains the media assets and workflow configurations for the "Confessions" content channel.
+
+### Current Assets
+- **Audio**: AI-generated voiceovers (ElevenLabs).
+- **Video**: Confession video clips and master edits.
+- **Images**: Thumbnails and cover art.
+- **Subtitles**: Exported subtitle files for video content.
+
+### Workflow
+The general workflow involves:
+1. Generating voiceovers via ElevenLabs.
+2. Composing video clips with overlaying audio and subtitles.
+3. Preparing assets for publication.
+
 ## Tech Stack
 
 - **Framework:** Next.js 14 (App Router)
