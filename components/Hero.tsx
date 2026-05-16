@@ -18,7 +18,8 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="text-6xl md:text-9xl font-heading font-bold text-brand-red tracking-tighter mb-4"
+                    className="text-6xl md:text-9xl font-heading font-bold text-brand-red tracking-tighter mb-4 glitch-text neon-text-red"
+                    data-text="CONFESSIONS"
                 >
                     CONFESSIONS
                 </motion.h1>

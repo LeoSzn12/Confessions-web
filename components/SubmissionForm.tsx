@@ -41,14 +41,14 @@ export default function SubmissionForm() {
     };
 
     return (
-        <section id="submit-form" className="py-20 bg-black px-4">
-            <div className="max-w-2xl mx-auto">
+        <section id="submit-form" className="py-20 bg-black px-4 font-mono relative z-10">
+            <div className="max-w-2xl mx-auto border border-gray-800 p-8 bg-black/80 backdrop-blur-sm neon-glow-red">
                 <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-6xl font-heading text-brand-red mb-4">
-                        SHARE YOUR CONFESSION
+                    <h2 className="text-3xl md:text-5xl font-heading text-brand-red mb-4 neon-text-red">
+                        SECURE SUBMISSION
                     </h2>
-                    <p className="text-white text-lg font-light">
-                        Your story stays anonymous. Your truth deserves to be heard.
+                    <p className="text-gray-400 text-sm">
+                        ENCRYPTED CHANNEL. ANONYMOUS ENTRY.
                     </p>
                 </div>
 
@@ -56,76 +56,74 @@ export default function SubmissionForm() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-brand-dark border border-brand-red p-8 text-center rounded-lg"
+                        className="border border-brand-red p-8 text-center bg-brand-red/10"
                     >
-                        <Check className="w-16 h-16 text-brand-red mx-auto mb-4" />
-                        <h3 className="text-2xl font-bold text-white mb-2">CONFESSION RECEIVED</h3>
-                        <p className="text-gray-400">Thank you for sharing your truth. Stay anonymous.</p>
+                        <Check className="w-12 h-12 text-brand-red mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-brand-red mb-2">DATA RECEIVED</h3>
+                        <p className="text-gray-400 text-xs">Connection terminated. Identity wiped.</p>
                         <button
                             onClick={() => setIsSuccess(false)}
-                            className="mt-6 text-brand-yellow hover:underline text-sm"
+                            className="mt-6 text-brand-yellow hover:text-white transition-colors text-xs border border-brand-yellow px-4 py-2"
                         >
-                            Submit another
+                            [ SUBMIT ANOTHER ]
                         </button>
                     </motion.div>
                 ) : (
                     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                         <div>
-                            <label className="block text-gray-400 text-sm mb-2 font-bold">TITLE</label>
+                            <label className="block text-brand-red text-xs mb-2 tracking-widest">&gt; TITLE_</label>
                             <input
                                 {...register("title", { required: "Title is required", maxLength: 100 })}
-                                placeholder="What's weighing on you?"
-                                className="w-full bg-brand-dark border border-gray-800 focus:border-brand-red text-white p-4 rounded-none outline-none transition-colors"
+                                placeholder="ENTER CLASSIFICATION..."
+                                className="w-full bg-black border border-gray-800 focus:border-brand-red text-white p-3 text-sm outline-none transition-all focus:neon-glow-red"
                             />
-                            {errors.title && <span className="text-brand-red text-xs">{errors.title.message}</span>}
+                            {errors.title && <span className="text-brand-yellow text-xs mt-1 block">{errors.title.message}</span>}
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-2 font-bold">YOUR STORY</label>
+                            <label className="block text-brand-red text-xs mb-2 tracking-widest">&gt; STATEMENT_</label>
                             <textarea
                                 {...register("story", { required: "Story is required", maxLength: 2000 })}
-                                placeholder="Tell us everything... it's anonymous."
+                                placeholder="INPUT CONFESSION DATA..."
                                 rows={6}
-                                className="w-full bg-brand-dark border border-gray-800 focus:border-brand-red text-white p-4 rounded-none outline-none transition-colors"
+                                className="w-full bg-black border border-gray-800 focus:border-brand-red text-white p-3 text-sm outline-none transition-all focus:neon-glow-red"
                             />
-                            {errors.story && <span className="text-brand-red text-xs">{errors.story.message}</span>}
+                            {errors.story && <span className="text-brand-yellow text-xs mt-1 block">{errors.story.message}</span>}
                         </div>
 
                         <div>
-                            <label className="block text-gray-400 text-sm mb-2 font-bold">EMAIL (OPTIONAL)</label>
+                            <label className="block text-gray-500 text-xs mb-2 tracking-widest">&gt; EMAIL [OPTIONAL]_</label>
                             <input
-                                {...register("email", { pattern: { value: /^\S+@\S+$/i, message: "Invalid email" } })}
-                                placeholder="Get notified if we feature your story"
-                                className="w-full bg-brand-dark border border-gray-800 focus:border-brand-red text-white p-4 rounded-none outline-none transition-colors"
+                                {...register("email", { pattern: { value: /^\S+@\S+$/i, message: "Invalid format" } })}
+                                placeholder="FOR NOTIFICATION PROTOCOLS..."
+                                className="w-full bg-black border border-gray-800 focus:border-brand-red text-gray-300 p-3 text-sm outline-none transition-all"
                             />
-                            {errors.email && <span className="text-brand-red text-xs">{errors.email.message}</span>}
+                            {errors.email && <span className="text-brand-yellow text-xs mt-1 block">{errors.email.message}</span>}
                         </div>
 
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-start gap-3 border border-gray-800 p-4">
                             <input
                                 type="checkbox"
-                                {...register("consent", { required: "You must confirm this" })}
-                                className="w-5 h-5 accent-brand-red bg-brand-dark border-gray-800"
+                                {...register("consent", { required: "Verification required" })}
+                                className="w-4 h-4 accent-brand-red mt-1"
                             />
-                            <label className="text-gray-400 text-sm">
-                                I confirm this story is true and I'm over 18
+                            <label className="text-gray-400 text-xs leading-relaxed">
+                                I VERIFY THIS DATA IS FACTUAL AND I AM AUTHORIZED (18+) TO TRANSMIT IT.
                             </label>
                         </div>
-                        {errors.consent && <span className="text-brand-red text-xs block">{errors.consent.message}</span>}
+                        {errors.consent && <span className="text-brand-yellow text-xs block">{errors.consent.message}</span>}
 
-                        {error && <div className="text-brand-red text-center text-sm">{error}</div>}
+                        {error && <div className="text-brand-yellow text-center text-xs border border-brand-yellow p-2">{error}</div>}
 
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full bg-brand-red text-white font-bold py-4 text-lg tracking-wider hover:bg-red-700 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
+                            className="w-full bg-transparent border border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-bold py-4 text-sm tracking-[0.2em] transition-all disabled:opacity-50 flex items-center justify-center gap-2 relative overflow-hidden group"
                         >
-                            {isSubmitting ? <Loader2 className="animate-spin" /> : "SUBMIT CONFESSION"}
+                            <span className="relative z-10 flex items-center gap-2">
+                                {isSubmitting ? <Loader2 className="animate-spin w-4 h-4" /> : "[ TRANSMIT_ ]"}
+                            </span>
                         </button>
-
-                        <p className="text-center text-xs text-gray-600 mt-4">
-                            All submissions are 100% anonymous. We never share personal info.
-                        </p>
                     </form>
                 )}
             </div>
