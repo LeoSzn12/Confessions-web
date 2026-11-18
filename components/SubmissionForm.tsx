@@ -33,7 +33,7 @@ export default function SubmissionForm() {
 
             setIsSuccess(true);
             reset();
-        } catch (err) {
+        } catch {
             setError("Something went wrong. Please try again.");
         } finally {
             setIsSubmitting(false);

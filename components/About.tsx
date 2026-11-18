@@ -14,7 +14,7 @@ export default function About() {
                         We believe that sharing your burden is the first step to freedom.
                     </p>
                     <p>
-                        Submit your story, watch others, and find comfort knowing you're not alone in your experiences.
+                        Submit your story, watch others, and find comfort knowing you&apos;re not alone in your experiences.
                     </p>
                 </div>
             </div>
