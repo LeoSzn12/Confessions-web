@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Confessions Channel Assets
 *.json
+
+# Local symlink to the owner's ConfessionsFactory folder (machine-specific)
+ConfessionsFactory
